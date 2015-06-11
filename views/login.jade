@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1= title
+    form#formlogin(role="form",name="login",method="post",action="/login")
+      div.logininput
+        span Username:
+        input#inputUserName(type="text", placeholder="username", name="username", value="#{pname}")
+        span#usernameerror.errortextL #{uerror}
+      div.logininput
+        span Password:
+        input#inputUserPassword(type="password", placeholder="userpassword", name="password")
+        span#passworderror.errortextL #{perror}
+        button#btnLogin.searchbuttonstatic(type="Login") Login
+        a#accountaanmaken(href='/newuser') Make an account here

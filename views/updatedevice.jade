@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    h1= title
+    form#formDevice(role="form",name="updatedevice",method="post",action="/updatedevice",enctype="multipart/form-data")
+      #addDevice
+        #idupdateitem
+          span Device Name:
+          input#inputDeviceName(type="text", placeholder="deviceId", name="deviceId", value="#{deviceId}")
+        #addDevicename
+          span Device Name:
+          input#inputDeviceName(type="text", placeholder="devicename", name="devicename", value="#{devicename}")
+          span#errorname.errortext #{serror}
+        #addDevicetype
+          span Device Type:
+          input#inputDeviceType(type="text", placeholder="devicetype", name="devicetype", value="#{devicetype}")
+          span#errorDeviceType.errortext
+        #adddescription
+          span Description:
+          //de streep naast device description zorgt voor een correcte html inlezing van de text 
+          textarea#inputDeviceDescription(type="text",name='devicedescription',placeholder="devicedescription", cols='40', rows='5')
+            |#{devicedescription}
+          span#errorDeviceDescription.errortext
+        #inputimg
+          input(type="file", name="file")
+          #selectimage.searchbuttonstatic Select image
+          span#val #{imagebyt}
+          span#errorVal.errortext
+        #divAdddevice.clearboth1
+        button#btnAdddevice.searchbuttonstatic(type="submit") Update device

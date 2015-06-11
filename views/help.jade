@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  #container
+    ul
+      li
+        a#back(href='/overview') Back
+      li
+        a(href='#addinguserhelp') How to add a user
+      li
+        a(href='#filterenhelp') How to use the filter
+      li
+        a(href='#checkouthelp') How to checkout a device
+      li
+        a(href='#viewregistrationshelp') How to overview a device registrations
+      br
+
+    #addinguserhelp.propertyhelp How to add a user?
+    img(src='http://localhost:3000/images/adduser.gif', width='1000px')
+    a(href='#back') Up
+    #filterenhelp.propertyhelp How to use the filter
+    img(src='http://localhost:3000/images/filteren.gif', width='1000px')
+    a(href='#back') Up
+    #checkouthelp.propertyhelp How to checkout a device
+    img(src='http://localhost:3000/images/checkout.gif', width='1000px')
+    a(href='#back') Up
+    #viewregistrationshelp.propertyhelp How to overview a device registrations
+    img(src='http://localhost:3000/images/viewregistrations.gif', width='1000px')
+    a(href='#back') Up

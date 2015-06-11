@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    h1= title
+    form#formDevice(role="form",name="adddevice",method="post",action="/adddevice",enctype="multipart/form-data")
+      #addDevice
+        #addDevicename
+          span Device Name:
+          input#inputDeviceName(type="text", placeholder="devicename", name="devicename")
+          span#errorname.errortext #{serror}
+        #addDevicetype
+          span Device Type:
+          input#inputDeviceType(type="text", placeholder="devicetype", name="devicetype")
+          span#errorDeviceType.errortext
+        #addquant
+          span Quantity:
+          input#inputQuantity(type="text", placeholder="Quantity", name="Quantity", value="1")
+        #adddescription
+          span Description:
+          textarea#inputDeviceDescription(type="text",name='devicedescription', cols='40', rows='5')
+          span#errorDeviceDescription.errortext
+        #inputimg
+          input(type="file", name="file")
+          #selectimage.searchbuttonstatic Select image
+          span#val
+          span#errorVal.errortext
+        #divAdddevice.clearboth1
+        button#btnAdddevice.searchbuttonstatic(type="submit") Add device

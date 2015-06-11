@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  #container
+    h1= title
+    form#newuser(role="form",name="login",method="post",action="/newuser")
+      div.fillintxt
+        span Name :
+        input#UserName.adduser(type="text", placeholder="Jhon doe", name="username")
+        span#errorUserName.errortext #{serror}
+      div.fillintxt
+        span Password :
+        input#UserPassword.adduser(type="password", placeholder="Password", name="password")
+        span#errorPassword.errortext
+      div.fillintxt
+        span Re-enter password :
+        input#UserPasswordsec.adduser(type="password", placeholder="Password")
+        span#errorPasswordsec.errortext
+      div.fillintxt
+        span Email :
+        input#inputUserEmail.adduser(type="text", placeholder="me@beobank.be", name="email")
+        span#errorEmail.errortext
+      button#adduser.searchbuttonstatic(type="submit") Register

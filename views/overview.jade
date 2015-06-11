@@ -1,0 +1,59 @@
+
+extends layout
+
+block content
+  #basket
+    div.title
+      span.baskettitle basket
+    #devicesbasket
+    #globalfromuntil
+      span.fromuntilspan Global from :
+      input#globalfrom.textboxfrom(type='text')
+      br
+      span.fromuntilspan Global until :
+      input#globaluntil.textboxuntil(lable:'From', name:'From', type='text')
+    form#FormComfirm(name="comfirm",method="post",action="/overview")
+      input#comfirm.searchbuttonstatic(value='COMFIRM', name='comfirm', type='submit')
+  #container
+    #filter
+      form#formFilter(name="Filter",method="post",action="/overview")
+        #toonall
+            span show all free devices
+            input#chktoonall.checkbox(type='checkbox', checked=true)
+        #filternaam
+          span Filter:
+          input#txtfilter.textbox(type='textbox', name='txtfilter')
+        input#btnfilter.searchbuttonstatic(value='SEARCH', name='Search', type='submit')
+    #tilecontainer
+      span#filtererror.propertyhelp No devices were found on this filterquery. Try again or &nbsp;
+        a(href='/overview') click here
+        &nbsp; to view all cards
+     each dev, i in devicelist
+        .tile(devID="#{dev._id}",registrations="#{dev.deviceregistrations}")
+          div.deviceplaceholder(isReserved="#{dev.isuitgeleend}")
+            div.lock
+            img(src='http://localhost:3000/uploadimg/'+ dev.imagebyt)
+            span.propertyedit edit
+          div.contenttile
+              div.title
+                span #{dev.devicename.substring(0,16)}
+            div.type
+              span.property Type:
+              span #{dev.devicetype.substring(0,16)}
+            div.description
+              span.property Description:
+              span #{dev.devicedescription.substring(0,350)}
+            div.checkout
+              input.searchbutton(value='CHECKOUT', name='Search', type='submit')
+          div.extrainfotile
+            div.from
+              span.property From:
+              span.closestfrom
+            div.until
+              span.property Until:
+              span.closestuntil
+            div.by
+              span.property By:
+              span.closestby
+    div.clearboth
+    span#results #{user}
